@@ -6,7 +6,7 @@ We present **CROP(Central Roundish Object Painter)**, which　identifies and pai
 To use **CROP**, one can install **python**, **pytorch**, **torchvision**, **jupyter**, **pillow**, **matplotlib**, perhaps with **conda**. Then, download the following three files: `demo.ipynb`, `source.py` and `net_dic_0314_5000` into the same folder, and open `demo.ipynb` by **Jupyter Notebook**. 
 
 
-Before going into the instruction, let us make some remark. The file `net_dic_0314_5000` is placed as a [release](../releases), which is the python dictionary object containing parameters for **CROP**. As it is compressed as a zip file, please decompress and then use it.  Also one can find another file `net_dic_ft_0328_1_5000`, which contains parameters after the fine-tuning to particular pears in the local farms. To use it, one needs to replace the dictionary names in `source.py`. Please see the paper for the fine-tuning:
+Before going into the instruction, let us make some remark. The file `net_dic_0314_5000` is placed as a [release](https://github.com/MotohisaFukuda/CROP/releases), which is the python dictionary object containing parameters for **CROP**. As it is compressed as a zip file, please decompress and then use it.  Also one can find another file `net_dic_ft_0328_1_5000`, which contains parameters after the fine-tuning to particular pears in the local farms. To use it, one needs to replace the dictionary names in `source.py`. Please see the paper for the fine-tuning:
 TBA
 As is also written in the paper, **CROP** averages eight different outcomes based on dihedral transformations. Therefore, without a GPU some may think the program runs slowly. This extra averaging process can be deactivated as described below. 
 
