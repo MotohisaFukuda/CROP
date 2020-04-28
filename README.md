@@ -19,7 +19,7 @@ from source import *
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
 segment_image = SegmentingImage(threshold=0.5, device=device, average=True)
 ```
-Here, necessary codes will be imported from the file `source.py`. By default, it will use the zero-numbered GPU if available. Change the number of GPU if you prefer, and execute the tab. In addition, `threshold` can be set to a value between 0 and 1. The smaller it is, the more likely for **CROP** to classify pixels as part of the central object. Besides, one can switch off the extra averaging process by setting `average=False`. 
+Here, necessary codes will be imported from the file `source.py`. By default, it will use the zero-numbered GPU if available to pytorch. Change the GPU number if you prefer, and execute the tab. In addition, `threshold` can be set to a value between 0 and 1. The smaller it is, the more likely for **CROP** to classify pixels as part of the central object. Besides, one can switch off the extra averaging process by setting `average=False`. 
 
 The second tab is:
 ```python
