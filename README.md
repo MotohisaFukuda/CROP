@@ -2,6 +2,7 @@
 We present **CROP(Central Roundish Object Painter)**, which identifies and paints the object at the center of an RGB image. Primarily **CROP** works for roundish fruits in various illumination conditions, but surprisingly, it could also deal with images of other organic or inorganic materials, or ones by optical and electron microscopes, although **CROP** was trained solely by 172 images of fruits. The method involves image segmentation by deep learning, and the architecture of the neural network is a deeper version of the original **U-Net**.
 [http://arxiv.org/abs/2008.01251](http://arxiv.org/abs/2008.01251).
 
+New programs for the second verson of the above paper will be uploaded shortly. 
 
 ## Preparation
 To use **CROP**, one can install Python, PyTorch, Jupyter, Pillow, Matplotlib. Then, download the following three files: `demo.ipynb`, `source.py` and `net_dic_0314_5000` into the same folder, and open `demo.ipynb` by Jupyter Notebook. 
