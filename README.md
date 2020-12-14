@@ -3,7 +3,7 @@ We present **CROP(Central Roundish Object Painter)**, which identifies and paint
 [http://arxiv.org/abs/2008.01251](http://arxiv.org/abs/2008.01251).
 
 ## Preparation for analysis on photos in local directories and folders. 
-Please install Python, PyTorch, Jupyter, Pillow, Matplotlib. Then, download the following files: `demo.ipynb`, `source3.py` and favorite parameter dictionaries into the same folder, and open `analysis_single.ipynb` or `analysis_multiple.ipynb` by Jupyter Notebook. The instructions on the above parameter dictionaries are found below (git-clone is not enough to get one). 
+Please install Python, PyTorch, Jupyter, Pillow, Matplotlib and then download the following files: `analysis_single.ipynb`, `analysis_multiple.ipynb`, `source3.py` and favorite parameter dictionaries into the same folder, and open `analysis_single.ipynb` or `analysis_multiple.ipynb` by Jupyter Notebook. The instructions on the above parameter dictionaries are found below (git-clone is not enough to get one). 
 
 ## How to run **CROP** to analyze individual photos.
 The first tab of `analysis_single.ipynb` opend by Jupyter Notebook looks like:
