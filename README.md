@@ -2,9 +2,60 @@
 We present **CROP(Central Roundish Object Painter)**, which identifies and paints the object at the center of an RGB image. Primarily **CROP** works for roundish fruits in various illumination conditions, but surprisingly, it could also deal with images of other organic or inorganic materials, or ones by optical and electron microscopes, although **CROP** was trained solely by 172 images of fruits. The method involves image segmentation by deep learning, and the architecture of the neural network is a deeper version of the original **U-Net**.
 [http://arxiv.org/abs/2008.01251](http://arxiv.org/abs/2008.01251).
 
-New programs for the second verson of the above paper will be uploaded shortly. 
+## Preparation for analysis on photos in local directories and folders. 
+Please install Python, PyTorch, Jupyter, Pillow, Matplotlib. Then, download the following files: `demo.ipynb`, `source3.py` and favorite parameter dictionaries into the same folder, and open `analysis_single.ipynb` or `analysis_multiple.ipynb` by Jupyter Notebook. The instructions on the above parameter dictionaries are found below (git-clone is not enough to get one). 
 
-## Preparation
+## How to run **CROP** to analyze individual photos.
+The first tab of `analysis_single.ipynb` opend by Jupyter Notebook looks like:
+```python
+place = r""
+name_measurement = r""
+dic_name = r""
+```
+Please specify your directory or folder which contains the photos to be processed as `place`,
+the masurement name as `name_measurement` and the parameter dictionary name as `dic_name `.
+Note that each measurement will be saved separately in the corresponding directory or folder,
+which is useful when you make different experiments on the same photos. 
+After executing the first and second tabs, one will get the list of photos with id numbers. 
+In the third tab: 
+```python
+pic_id = 
+```
+choose a photo by its id number to see it after the execution. 
+In the fourth tab:
+```python
+center = (x ,y)
+scale = z
+```
+please set a cropping frame, the way of which is written below, and execute the fifth tab.
+If the cropped photo is fine, execute the next tab.
+Note that as default, the program will automatically adjust the cropping frame in the next process. 
+
+As a result, you will see all the processes; as default
+automatically adjusted cropping frame, eleven differently scaled photos with masks, 
+histogram of the measurement outcomes, and the center of mass in the original photo. 
+In addition, the directory or folder named as `name_measurement`, which was defined earlier,
+will be created and the program will save the eleven measurement outcomes, the median and the corresponding coordinates of the center of mass in a csv file, and masked images and eleven masks (thumbnails).
+
+If you want to process another photo, make similar operations from the third tab. 
+An additional data will be added up in the csv file, and photos may be overwritten if one processes the same photo. 
+
+## How to run **CROP** to analyze time series photos.
+The first tab of `analysis_multiple.ipynb` can be handled in the same way as `analysis_single.ipynb`,
+and then one can execute the second tab without changing anything unless one wants to change parameters of the program. 
+One will see then the first photo in the directory or folder; 
+we assume that they are ordered chronologically and alphabetically at the same time.
+The third tab can be completed as `analysis_single.ipynb`, again. 
+The execution of the fourth tab will give you all; as default
+the program will make the directory or folder named as `name_measurement`
+and save the same data as `analysis_single.ipynb`, but this time the data for all the photos.
+So, the target object can move around in the time series photos, 
+but it must be almost at the same position between neighboring photos. 
+
+
+The instructions below correspond to the first version of the arxiv paper. Nevertheless, one can consult them to make trials on photos on the net, for example. 
+
+## Preparation for tryials on photos on the net, and local ones. 
 To use **CROP**, one can install Python, PyTorch, Jupyter, Pillow, Matplotlib. Then, download the following three files: `demo.ipynb`, `source.py` and `net_dic_0314_5000` into the same folder, and open `demo.ipynb` by Jupyter Notebook. 
 
 
