@@ -1,6 +1,6 @@
 # Central object segmentation by deep learning for fruits and other roundish objects
 We present **CROP(Central Roundish Object Painter)**, which identifies and paints the object at the center of an RGB image. Primarily **CROP** works for roundish fruits in various illumination conditions, but surprisingly, it could also deal with images of other organic or inorganic materials, or ones by optical and electron microscopes, although **CROP** was trained solely by 172 images of fruits. The method involves image segmentation by deep learning, and the architecture of the neural network is a deeper version of the original **U-Net**.
-[http://arxiv.org/abs/2008.01251](http://arxiv.org/abs/2008.01251).
+[https://arxiv.org/pdf/2008.01251.pdf](https://arxiv.org/pdf/2008.01251.pdf).
 To get the idea, see Section 2.2 and 2.3, and to know about processing time series photos see Section 3.3.
 
 
