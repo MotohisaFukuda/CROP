@@ -4,7 +4,6 @@ We present **CROP(Central Roundish Object Painter)**, which identifies and paint
 To get the idea, see Section 2.2 and 2.3, and to know about processing time series photos see Section 3.3 of
 arXiv:2008.01251 [cs.CV]:  
 [PDF](https://arxiv.org/pdf/2008.01251.pdf), or [Abstract](http://arxiv.org/abs/2008.01251).  
-If you like it: <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
 
 
 ## Preparation for analysis on photos in local directories and folders. 
