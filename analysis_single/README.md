@@ -1,4 +1,4 @@
-## How to run **CROP** to analyze individual photos.
+## How to run **CROP** to analyze individual photos in a directory or folder.
 
 We explain below how to analyze a single photo among several photos in a folder. 
 
