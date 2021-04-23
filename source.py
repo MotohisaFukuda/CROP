@@ -1,11 +1,15 @@
+import glob, os, re, csv, copy, time
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageDraw
 import matplotlib.pyplot as plt
 import torch
 import torchvision.transforms.functional as ttf
 import torchvision.transforms as transforms
 import torch.nn as nn
 from urllib.request import urlopen
+
+from IPython.display import clear_output
+
 
 class ConvDoubled(nn.Module):
     def __init__(self, in_channels, middle_channels, out_channels):
@@ -95,18 +99,29 @@ class UNetConvDeep7(nn.Module):
 def open_image(place):
     if place[:4] == "http":
         place = urlopen(place)
-    pic = Image.open(place)
+    pic = Image.open(place).convert('RGB')
     plt.imshow(pic)
     plt.show()
     return pic
 
 
-def crop_image(pic, center, scale):
+def crop_image(pic, center, scale, show=True):
     l = center[0] - scale
     t = center[1] - scale
     pic = ttf.resized_crop(pic, t, l, scale*2, scale*2, 512)
-    plt.imshow(pic)
-    plt.show()
+    if show:
+        plt.imshow(pic)
+        plt.show()
+    return pic
+
+def crop_image_raw(pic, center, scale, show=True):
+    l = center[0] - scale
+    t = center[1] - scale
+    pic = ttf.crop(pic, t, l, scale*2, scale*2)
+    if show:
+        plt.imshow(pic)
+        plt.axis('off')
+        plt.show()
     return pic
 
 
@@ -128,7 +143,7 @@ class ProcessingImage:
         self.device = device
         self.network = network
         
-    def __call__(self, pic):
+    def __call__(self, pic, adjusting=False, cs=None):
         w, h = pic.size
         list_reults = [pic]
             
@@ -156,27 +171,43 @@ class ProcessingImage:
             heatmap255_sum_numpy += hm_numpy.copy()
             
         heatmap255_ave_numpy = heatmap255_sum_numpy/num
-        mask_numpy_low = heatmap255_ave_numpy > self.threshold*255
-        mask_numpy = np.zeros((h, w, 3))
-        mask_numpy[:,:] = [255, 255, 0]
-        mask_numpy[mask_numpy_low] = [255, 0, 255]
-
-        num_pixels = np.count_nonzero(mask_numpy_low)
-        mask = Image.fromarray(np.uint8(mask_numpy))
+        mask_numpy_mono = heatmap255_ave_numpy > self.threshold*255
+        y_info, x_info = np.nonzero(mask_numpy_mono)
         
-        h,w,_ = mask_numpy.shape
-        base = Image.new("L", (w, h), 128)
-        image_masked = Image.composite(pic, mask, base)
-        list_reults.append(image_masked)
-        list_reults.append(mask)
+        if adjusting:
+            x_min, x_max = np.amin(x_info), np.amax(x_info)
+            y_min, y_max = np.amin(y_info), np.amax(y_info)
             
-        return list_reults, num_pixels
+            center, scale = cs
+            ratio = scale/256
+            center_adjusted = np.around([(x_max + x_min)*ratio/2, (y_max + y_min)*ratio/2]) + np.array(center) - scale
+            scale_adjusted = np.around(np.amax([x_max - x_min, y_max - y_min]) * 0.55*ratio)
+            return center_adjusted, scale_adjusted
+        
+        else:
+        
+            mask_numpy = np.zeros((h, w, 3))
+            mask_numpy[:,:] = [255, 255, 0]
+            mask_numpy[mask_numpy_mono] = [255, 0, 255]
+
+            num_pixels = np.count_nonzero(mask_numpy_mono)
+            mask = Image.fromarray(np.uint8(mask_numpy))
+
+            h,w,_ = mask_numpy.shape
+            base = Image.new("L", (w, h), 128)
+            image_masked = Image.composite(pic, mask, base)
+            list_reults.append(image_masked)
+            list_reults.append(mask)
+
+            center_mass = np.mean(x_info), np.mean(y_info)
+
+            return list_reults, num_pixels, center_mass
         
 
 class SegmentingImage:
-    def __init__(self, threshold=0.5, device=None, average=True):
+    def __init__(self, threshold=0.5, device=None, average=True, dic_name=""):
         network = UNetConvDeep7().to(device)
-        network.load_state_dict(torch.load("net_dic_0314_05000", map_location=device))
+        network.load_state_dict(torch.load(dic_name, map_location=device))
         
         rotate_clockwise = RotatingImage(90)
         rotate_anticlockwise = RotatingImage(-90)
@@ -194,8 +225,266 @@ class SegmentingImage:
             list_transforms = [(self.identity, self.identity)]
         self.segment = ProcessingImage(threshold=threshold, device=device, network=network, list_transforms=list_transforms)
     
-    def __call__(self, pic):
-        return self.segment(pic)
+    def __call__(self, pic, adjusting=False, cs=None):
+        return self.segment(pic, adjusting, cs)
 
     def identity(self, pic):
         return pic
+    
+class AnalyzingImage:
+    def __init__(self, dic_name="", device=None, threshold=0.5, average=True, mode="median", save_all=False,
+                 show_adjusted=False, show_adjust_process=None, show_final=False, show_in_original=False, 
+                 size_pointer1=5, size_pointer2=10):
+ 
+        self.segment_image = SegmentingImage(threshold=threshold, device = device, average = average, dic_name=dic_name)
+    
+        self.mode = mode
+        self.save_all = save_all    
+        
+        self.show_adjusted = show_adjusted
+        self.show_adjust_process = show_adjust_process
+        self.show_final = show_final
+        self.show_in_original = show_in_original
+        
+        self.size_pointer1 = size_pointer1
+        self.size_pointer2 = size_pointer2
+        
+        if self.mode == "manual":
+            self.process = self.adjust_manually
+            
+        elif self.mode == "median":
+            self.process = self.adjust_automatically
+            self.rates=np.round(np.arange(1.0, 2.1, 0.1), decimals=1)
+            
+        elif self.mode == "center":
+            self.process = self.adjust_position_only
+        
+    def __call__(self, pic_original, center, scale):
+        return self.process(pic_original, center, scale)
+
+    def draw_point(self, pic, cm_back_np, size_pointer=5, show=False):
+        pic_annotated = pic.copy()
+        draw = ImageDraw.Draw(pic_annotated)
+        x0, y0 = cm_back_np - size_pointer
+        x1, y1 = cm_back_np + size_pointer
+        draw.rectangle([x0, y0, x1, y1], fill="blue")
+        del draw
+        if show:
+            plt.imshow(pic_annotated)
+            plt.axis('off')
+            plt.show()
+        return pic_annotated
+
+    def adjust_manually(self, pic_original, center_adjusted, scale_adjusted):
+        pic_cropped = crop_image(pic_original, center_adjusted, scale_adjusted, show=False)
+        list_pics, num_pixels, center_mass = self.segment_image(pic_cropped)
+        cm_np = np.array(center_mass)
+        list_pics[1] = self.draw_point(list_pics[1], np.round(cm_np), size_pointer=self.size_pointer1)     
+        
+        num_pixels_back = num_pixels*((scale_adjusted / 256)**2)
+        cm_back = cm_np * (scale_adjusted / 256) + center_adjusted - scale_adjusted
+
+        
+        if self.show_final:
+            print("pixels:", num_pixels_back)
+            plt.imshow(list_pics[1])
+            plt.axis('off')
+            plt.show()
+        if self.show_in_original:
+            self.draw_point(pic_original, np.round(cm_back), size_pointer=self.size_pointer2, show=True)
+        
+        return list_pics, num_pixels_back, cm_back, None, None, None
+    
+    def adjust_automatically(self, pic_original, center, scale):
+        pic_cropped_pre_resized = crop_image(pic_original, center, scale, show=False)
+        center_adjusted, scale_adjusted = self.segment_image(pic_cropped_pre_resized, adjusting=True, cs=(center, scale))
+        pic_cropped_double = crop_image_raw(pic_original, center_adjusted, 2* scale_adjusted, show=False)
+        
+        if self.show_adjusted:
+            plt.imshow(crop_image_raw(pic_original, center_adjusted, scale_adjusted, show=False))
+            plt.axis('off')
+            plt.show()
+        
+        measurements = []
+        pics_processed = []
+        points_com = []
+
+        for r in self.rates:
+            pic_cropped = crop_image(pic_cropped_double, (2*scale_adjusted, 2*scale_adjusted), scale_adjusted*r, show=False)
+            list_pics, num_pixels, center_mass = self.segment_image(pic_cropped)
+
+            num_pixels_back = num_pixels*((scale_adjusted*r / 256)**2)
+            measurements.append(num_pixels_back)
+            pics_processed.append(list_pics)            
+            
+            if self.show_adjust_process != False:
+                print("rate:", r, "pixcels:", num_pixels_back)
+                plt.imshow(list_pics[1])
+                plt.axis('off')
+                plt.show()
+                if self.show_adjust_process == "flash":
+                    clear_output(wait=True)
+                   
+
+            points_com.append(center_mass)
+        
+        result_sorted = sorted([(i, p) for i, p in enumerate(copy.deepcopy(measurements))], key= lambda x: x[1])
+        result_sorted_rp = [(self.rates[i], p) for i, p in result_sorted]
+        
+        ind_central, pixcels_central = result_sorted[4]
+        cm_central_np = np.array(points_com[ind_central])
+        rate_central = self.rates[ind_central]
+        pic_selected_triple = pics_processed[ind_central]
+        pic_selected_triple[1] = self.draw_point(pic_selected_triple[1], np.round(cm_central_np), size_pointer=self.size_pointer1)
+        cm_back = cm_central_np * (scale_adjusted*rate_central / 256) + center_adjusted - scale_adjusted*rate_central
+        
+        
+        if self.show_final:
+            print("central estimate")
+            print("rate", rate_central)
+            print("number of pixels", pixcels_central)
+            plt.imshow(pic_selected_triple[1])
+            plt.axis('off')
+            plt.show()
+            
+            plt.hist(measurements)
+#             plt.title('histogram') 
+            plt.xlabel('the number of pixels') 
+            plt.ylabel('count') 
+            plt.show() 
+
+        if self.show_in_original:
+            self.draw_point(pic_original, np.round(cm_back), size_pointer=self.size_pointer2, show=True)
+            
+        if self.save_all:
+            pics_masked_all = [pics[1] for pics in pics_processed]
+        else:
+            pics_masked_all = None
+        
+        return (pic_selected_triple, pixcels_central, cm_back, 
+                rate_central, (center_adjusted, scale_adjusted), (measurements, pics_masked_all)
+               )
+    
+        
+    def adjust_position_only(self, pic_original, center, scale):
+        pic_cropped_pre_resized = crop_image(pic_original, center, scale, show=False)
+        center_adjusted, _ = self.segment_image(pic_cropped_pre_resized, adjusting=True, cs=(center, scale))
+        pic_cropped = crop_image(pic_original, center_adjusted, scale, show=False)
+        
+        if self.show_adjusted:
+            plt.imshow(pic_cropped)
+            plt.axis('off')
+            plt.show()
+            
+        list_pics, num_pixels, center_mass = self.segment_image(pic_cropped)
+        cm_np = np.array(center_mass)
+        list_pics[1] = self.draw_point(list_pics[1], np.round(cm_np), size_pointer=self.size_pointer1)     
+        
+        num_pixels_back = num_pixels*((scale / 256)**2)
+        cm_back = cm_np * (scale / 256) + center_adjusted - scale
+
+        
+        if self.show_final:
+            print("pixels:", num_pixels_back)
+            plt.imshow(list_pics[1])
+            plt.axis('off')
+            plt.show()
+        if self.show_in_original:
+            self.draw_point(pic_original, np.round(cm_back), size_pointer=self.size_pointer2, show=True)
+        
+        return list_pics, num_pixels_back, cm_back, None, (center_adjusted, scale), None
+        
+def find_pics(directory):
+    extensions = r"/*.(jpg|jpeg|png|bmp)"
+    path = directory
+    l = sorted([f for f in os.listdir(path) if re.search(extensions, f, re.IGNORECASE)])
+    for i, pic_name in enumerate(l):
+        print("id:", i, " name:", pic_name)
+    return [(os.path.splitext(name)[0], path + r"/" +name) for name in l]
+        
+        
+        
+class ProcessingSinglePic(AnalyzingImage):
+    def __init__(self, dic_name="", device=None, directory=None, name_measurement=None, 
+                 threshold=0.5, average=True, mode="median", save_all=False, 
+                 show_adjusted=False, show_adjust_process=None, show_final=False, show_in_original=None, 
+                 size_pointer1=5, size_pointer2=10, mask=False):
+        super().__init__(dic_name, device, 
+                         threshold, average, mode, save_all, 
+                         show_adjusted, show_adjust_process, show_final, show_in_original, 
+                         size_pointer1, size_pointer2)
+
+        self.directory_processed = os.path.join(directory, "measurement_" + name_measurement)
+        if not os.path.exists(self.directory_processed):
+            os.makedirs(self.directory_processed)
+        self.path_data_processed = os.path.join(self.directory_processed, "data.csv")
+        if self.save_all:
+            self.directory_processed_extra = os.path.join(directory, "measurement_" + name_measurement+"_extra")
+            if not os.path.exists(self.directory_processed_extra):
+                os.makedirs(self.directory_processed_extra)
+            self.path_data_processed_extra = os.path.join(self.directory_processed_extra, "data.csv")
+        if mask == False:
+            self.w = 512 *2
+            self.n = 2
+        else:
+            self.w = 512 *3
+            self.n = 3 
+        
+    def __call__(self, name_path_tuple, center, scale):
+
+        name = name_path_tuple[0]
+        pic = Image.open(os.path.join(name_path_tuple[1]))
+
+        list_pics, num_pixels, cm, rate, cs, data_all = self.process(pic, center, scale)
+        canvas = Image.new('RGB', (self.w, 512))
+        for i, pic in enumerate(list_pics[:self.n]):
+            canvas.paste(pic,(512 *i, 0))
+        path_pic_processed = os.path.join(self.directory_processed, name+".png")
+        canvas.save(path_pic_processed, "png")
+
+        with open (self.path_data_processed, "a") as fil:
+            writer = csv.writer(fil)
+            writer.writerow([name, num_pixels, cm[0], cm[1], rate])
+            
+        if self.save_all:
+            for r, p in zip(self.rates, data_all[1]):
+                path_pic_processed_thumb = os.path.join(self.directory_processed_extra, name+"_"+str(int(10*r))+".png")
+                p.thumbnail((128,128))
+                p.save(path_pic_processed_thumb, "png")
+            with open (self.path_data_processed_extra, "a") as fil:
+                writer = csv.writer(fil)
+                writer.writerow([name]+data_all[0])
+                
+        return cs
+        
+class ProcessingMultiplePics(ProcessingSinglePic):
+    def __init__(self, dic_name="", device=None, directory=None, name_measurement=None, 
+                 threshold=0.5, average=True, mode="median", save_all=False, 
+                 show_adjusted=False, show_adjust_process=None, show_final=False, show_in_original=None, 
+                 size_pointer1=5, size_pointer2=10, 
+                 exploration_rate=1.5, bound=1.1):
+        self.exploration_rate = exploration_rate
+        self.bound = bound
+        super().__init__(dic_name, device, directory, name_measurement,
+                         threshold, average, mode, save_all, 
+                         show_adjusted, show_adjust_process, show_final, show_in_original, 
+                         size_pointer1, size_pointer2)
+        
+    def __call__(self, name_path_tuples, center, scale):
+        scales = [scale]*5
+        for name_path_tuple in name_path_tuples:
+            cs = super().__call__(name_path_tuple, center, scale)
+            center, scale = cs[0], int(cs[1]*self.exploration_rate)
+        print("Done!")
+        
+
+
+   
+   
+    
+    
+    
+    
+    
+    
+    
