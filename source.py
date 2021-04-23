@@ -462,9 +462,8 @@ class ProcessingMultiplePics(ProcessingSinglePic):
                  threshold=0.5, average=True, mode="median", save_all=False, 
                  show_adjusted=False, show_adjust_process=None, show_final=False, show_in_original=None, 
                  size_pointer1=5, size_pointer2=10, 
-                 exploration_rate=1.5, bound=1.1):
+                 exploration_rate=1.5):
         self.exploration_rate = exploration_rate
-        self.bound = bound
         super().__init__(dic_name, device, directory, name_measurement,
                          threshold, average, mode, save_all, 
                          show_adjusted, show_adjust_process, show_final, show_in_original, 
