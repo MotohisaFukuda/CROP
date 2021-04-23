@@ -7,7 +7,7 @@ arXiv:2008.01251 [cs.CV]:
 
 ## Works for various fruits. 
 <img src="/images/murayama35a.png" width="33%" /><img src="/images/murayama21a.png" width="33%" /><img src="/images/murayama45.png" width="33%"/> 
-<i>**CROP** can process variosu roundish fruits with different colors. (photo credit: Hideki Murayama).</i>
+<i>It can process variosu roundish fruits with different colors. (photo credit: Hideki Murayama).</i>
 
 ## Chooses the best among the eleven differently scaled measurements. 
 <img src="/images/338_tiles_lite.png" width="42%" /> <img src="/images/8tiles_lite.png" width="57%" />
