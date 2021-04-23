@@ -12,15 +12,15 @@ In this project, we developped a non-contact method of measuring the relative si
 
 ## Achieved generality. 
 <img src="/images/coffee10.png" width="25%" /><img src="/images/bread2.png" width="25%" /><img src="/images/okuno_ball1556.png" width="25%"/><img src="/images/stone_br6.png" width="25%"/> 
-<i>It can process organic or non-organic objects.</i>
+<i>It can process organic or non-organic roundish objects.</i>
 
 ## Chooses the best among the eleven differently scaled measurements. 
 <img src="/images/338_tiles_lite.png" width="42%" /> <img src="/images/8tiles_lite.png" width="57%" />
-<i>The left describes that **CROP** identifies the target pear and makes measurements in eleven different scales. The right shows the target pear during the day of 12 Oct 2020. For each photo, among the eleven differently scaled photos the one giving the median (after scaling back) was chosen. (The camera was set by Takashi Okuno in the farm of Yota Ozeki.)</i>
+<i>The left describes that **CROP** identifies the target pear and makes measurements in eleven different scales. The right shows the target pear during the day of 12 Oct 2020. For each photo, among the eleven differently scaled photos the one giving the median (after scaling back) was chosen. The camera was set by Takashi Okuno in the farm of Yota Ozeki.</i>
 
 ## Gives time series data.
 <img src="/images/measurements_seg.png" width="69%" /> <img src="/images/positions.png" width="29%" />
-<i>The left boxplot was the outcome of the size measurements during the five days (08-12 Oct 2020); eight photos per day, where each photo was processed in eleven different scales, showing high variance during the night. The right was the plot of positions of the target pear during 12 Aug-15 Oct 2020, with some outliers below the frame. The larger the id is, the later it is. (The camera was set by Takashi Okuno in the farm of Yota Ozeki.)</i>
+<i>The left boxplot was the outcome of the size measurements during the five days (08-12 Oct 2020); eight photos per day, where each photo was processed in eleven different scales, showing high variance during the night. The right was the plot of positions of the target pear during 12 Aug-15 Oct 2020, with some outliers below the frame. The larger the id is, the later it is.</i>
 
 ## Preparation for **CROP**. 
 Please install Python, PyTorch, Jupyter, Pillow, Matplotlib and then download the following files: `demo.ipynb`, `analysis_single.ipynb`, `analysis_multiple.ipynb`, `source.py` and favorite parameter dictionaries into the same folder, and open these IPython notebooks by Jupyter Notebook, depending on the purposes below.
