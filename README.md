@@ -9,9 +9,13 @@ arXiv:2008.01251 [cs.CV]:
 <img src="/images/murayama35a.png" width="33%" /><img src="/images/murayama21a.png" width="33%" /><img src="/images/murayama45.png" width="33%"/> 
 <i>(photo credit: Hideki Murayama).</i>
 
+## Choose the best among the eleven measurements. 
+<img src="/images/8tiles_lite.png" width="100%" />
+<i>The target pear during the day of 12 Oct 2020. Each photo was processed in eleven different scales and the one giving median (after scaling back) was chosen. (The camera was set by Takashi Okuno in the farm of Yota Ozeki.)</i>
+
 ## Gives time series data.
 <img src="/images/measurements_seg.png" width="66%" /><img src="/images/positions.png" width="33%" />
-<i>The ptohos by the fixed camera was processed. The left boxplot was the outcome of the size measurement during the five days; eight photos per day, where each photo was processed in eleven different scales showing high measurement variance during the night. The right was the plot of positions of the target fruit during 12 Aug - 15 Oct 2020, with some outliers below the frame. The larger the id is, the later it is.</i>
+<i>The photos by the fixed camera were processed. The left boxplot was the outcome of the size measurement during the five days; eight photos per day, where each photo was processed in eleven different scales showing high measurement variance during the night. The right was the plot of positions of the target fruit during 12 Aug - 15 Oct 2020, with some outliers below the frame. The larger the id is, the later it is. (The camera was set by Takashi Okuno in the farm of Yota Ozeki.)</i>
 
 ## Preparation for analysis on photos in local directories and folders. 
 Please install Python, PyTorch, Jupyter, Pillow, Matplotlib and then download the following files: `analysis_single.ipynb`, `analysis_multiple.ipynb`, `source3.py` and favorite parameter dictionaries into the same folder, and open `analysis_single.ipynb` or `analysis_multiple.ipynb` by Jupyter Notebook. The instructions on the above parameter dictionaries are found below (git-clone is not enough to get one). 
