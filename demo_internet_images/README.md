@@ -30,9 +30,12 @@ center = (x, y)
 scale = z
 pic_cropped = crop_image(pic_original, center, scale)
 ```
-you can crop the image through setting coordinates for the center and choosing the cropping size. Here, `x` and `y` are horizontal and vertical coordinates, respectively, of the center of your cropping frame. Then, the top-left corner will be `(x-z, y-z)` and the bottom-right `(x+z, y+z)`. After executing this tab, you will get a cropped image resized to 512 times 512. You can redo this process until you get your favorite cropped image.
+you can crop the image through setting coordinates for the center and choosing the cropping size. Here, `x` and `y` are horizontal and vertical coordinates, respectively, of the center of your cropping frame. Then, the top-left corner will be `(x-z, y-z)` and the bottom-right `(x+z, y+z)`. After executing this tab, you will get a cropped image. You can redo this process until you get your favorite cropped image.
 
-The final tab shown below will give you the segmented image and the number(s) of pixels which **CROP** thought belong to the central object, and other data depending on the setting.
+After executing the final tab:
 ```python
 _ = segment_image(pic_original, center, scale)
 ```
+you will see all the processes; as default
+automatically adjusted cropping frame, eleven differently scaled photos with masks, 
+histogram of the measurement outcomes, and the center of mass in the original photo. 
