@@ -5,6 +5,11 @@ To get the idea, see Section 2.2 and 2.3, and to know about processing time seri
 arXiv:2008.01251 [cs.CV]:  
 [PDF](https://arxiv.org/pdf/2008.01251.pdf), or [Abstract](http://arxiv.org/abs/2008.01251).  
 
+<img src="murayama35a.png" width="33%" /> 
+<img src="murayama21a.png" width="33%" /> 
+<img src="murayama45.png" width="33%" /> 
+<i>Various fruits (photo credit: Hideki Murayama).</i>
+
 
 ## Preparation for analysis on photos in local directories and folders. 
 Please install Python, PyTorch, Jupyter, Pillow, Matplotlib and then download the following files: `analysis_single.ipynb`, `analysis_multiple.ipynb`, `source3.py` and favorite parameter dictionaries into the same folder, and open `analysis_single.ipynb` or `analysis_multiple.ipynb` by Jupyter Notebook. The instructions on the above parameter dictionaries are found below (git-clone is not enough to get one). 
