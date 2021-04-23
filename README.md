@@ -5,9 +5,7 @@ To get the idea, see Section 2.2 and 2.3, and to know about processing time seri
 arXiv:2008.01251 [cs.CV]:  
 [PDF](https://arxiv.org/pdf/2008.01251.pdf), or [Abstract](http://arxiv.org/abs/2008.01251).  
 
-<img src="murayama35a.png" width="32%" /> 
-<img src="murayama21a.png" width="32%" /> 
-<img src="murayama45.png" width="32%" /> 
+<img src="murayama35a.png" width="33%" /><img src="murayama21a.png" width="33%" /><img src="murayama45.png" width="33%"/> 
 <i>Various fruits (photo credit: Hideki Murayama).</i>
 
 
