@@ -1,9 +1,10 @@
 # Central object segmentation by deep learning for fruits and other roundish objects
 We present **CROP(Central Roundish Object Painter)**, which identifies and paints the object at the center of an RGB image. Primarily **CROP** works for roundish fruits in various illumination conditions, but surprisingly, it could also deal with images of other organic or inorganic materials, or ones by optical and electron microscopes, although **CROP** was trained solely by 172 images of fruits. The method involves image segmentation by deep learning, and the architecture of the neural network is a deeper version of the original **U-Net**.
 
-To get the idea, see Section 2.2 and 2.3, and to know about processing time series photos see Section 3.3 of
 arXiv:2008.01251 [cs.CV]:  
 [PDF](https://arxiv.org/pdf/2008.01251.pdf), or [Abstract](http://arxiv.org/abs/2008.01251).  
+
+In this project, we developped a non-contact method of measuring the relative size of the central roundish objects in images by counting the corresponding pixels and identifying the centrer of mass. Applying this method to images taken by fixed cameras, one can obtain time series data on the growth process of various fruits. 
 
 ## Works for various fruits. 
 <img src="/images/murayama35a.png" width="33%" /><img src="/images/murayama21a.png" width="33%" /><img src="/images/murayama45.png" width="33%"/> 
@@ -30,3 +31,5 @@ Please install Python, PyTorch, Jupyter, Pillow, Matplotlib and then download th
 
 The network dictionaries are placed at [release](https://github.com/MotohisaFukuda/CROP/releases), so you can downlaod and unfreeze them (git-clone is not enough to get ones).
 To see the difference between the dictionaries, please have a look at our paper. 
+
+The TITAN Xp GPU used in this project was denoted by NVIDIA Corporation.
