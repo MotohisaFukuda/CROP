@@ -11,8 +11,8 @@ Please install Python, PyTorch, Jupyter, Pillow, Matplotlib and then download th
 
 ## Three different ways of using **CROP**
 
-[analyze_internet_images.](/CROP/demo_internet_images)
+[analyze_internet_images.](/demo_internet_images/README.md)
 
-[analyze individual photos in a directory or folder.](https://github.com/MotohisaFukuda/CROP/analysis_single)
+[analyze individual photos in a directory or folder.](/analysis_single/README.md)
 
-[analyze time series photos in a directory or folder.](https://github.com/MotohisaFukuda/CROP/analysis_timeseries)
+[analyze time series photos in a directory or folder.](/analysis_timeseries/README.md)
