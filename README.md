@@ -4,7 +4,7 @@ We present **CROP(Central Roundish Object Painter)**, which identifies and paint
 arXiv:2008.01251 [cs.CV]:  
 [PDF](https://arxiv.org/pdf/2008.01251.pdf), or [Abstract](http://arxiv.org/abs/2008.01251).  
 
-In this project, we developped a non-contact method of measuring the relative size of the central roundish objects in images by counting the corresponding pixels and identifying the centrer of mass. Applying this method to images taken by fixed cameras, one can obtain time series data on the growth process of various fruits. 
+In this project, we developped a non-contact method of measuring the relative size of the central roundish objects in images, by counting the corresponding pixels, and identifying the centrer of mass. Applying this method to images taken by fixed cameras, one can obtain time series data on the growth process of various fruits. 
 
 ## Works for various fruits. 
 <img src="/images/murayama35a.png" width="33%" /><img src="/images/murayama21a.png" width="33%" /><img src="/images/murayama45.png" width="33%"/> 
