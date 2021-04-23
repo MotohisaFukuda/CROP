@@ -11,5 +11,7 @@ Please install Python, PyTorch, Jupyter, Pillow, Matplotlib and then download th
 
 ## Three different ways of using 
 [analyze_internet_images.](https://github.com/MotohisaFukuda/CROP/demo_internet_images)
+
 [analyze individual photos in a directory or folder.](https://github.com/MotohisaFukuda/CROP/analysis_single)
+
 [analyze time series photos in a directory or folder.](https://github.com/MotohisaFukuda/CROP/analysis_timeseries)
