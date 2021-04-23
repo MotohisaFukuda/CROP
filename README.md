@@ -20,7 +20,7 @@ arXiv:2008.01251 [cs.CV]:
 ## Preparation for **CROP**. 
 Please install Python, PyTorch, Jupyter, Pillow, Matplotlib and then download the following files: `demo.ipynb`, `analysis_single.ipynb`, `analysis_multiple.ipynb`, `source.py` and favorite parameter dictionaries into the same folder, and open `demo.ipynb`, `analysis_single.ipynb` or `analysis_multiple.ipynb` by Jupyter Notebook, depending on the purposes below.
 
-## Three different ways of using **CROP**
+## Three different ways of using **CROP**.
 
 - [analyze_internet_images.](/demo_internet_images/README.md)
 
