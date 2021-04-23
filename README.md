@@ -8,7 +8,11 @@ In this project, we developped a non-contact method of measuring the relative si
 
 ## Works for various fruits. 
 <img src="/images/murayama35a.png" width="33%" /><img src="/images/murayama21a.png" width="33%" /><img src="/images/murayama45.png" width="33%"/> 
-<i>The photos with no masks are the inputs and the ones with masks are the outputs. **CROP** can identify and process the central roundish fruit of various kinds and colors.  (photo credit: Hideki Murayama).</i>
+<i>The photos with no masks are the inputs and the ones with masks are the outputs. **CROP** can identify and process the central roundish fruit of various kinds and colors. photo credit: Hideki Murayama.</i>
+
+## Achieved generality. 
+<img src="/images/coffee10.png" width="25%" /><img src="/images/bread2.png" width="25%" /><img src="/images/okuno_ball1556.png" width="25%"/><img src="/images/stone_br6.png" width="25%"/> 
+<i>It can process organic or non-organic objects.</i>
 
 ## Chooses the best among the eleven differently scaled measurements. 
 <img src="/images/338_tiles_lite.png" width="42%" /> <img src="/images/8tiles_lite.png" width="57%" />
