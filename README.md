@@ -22,7 +22,7 @@ In this project, we developped a non-contact method of measuring the relative si
 <img src="/images/measurements_seg.png" width="69%" /> <img src="/images/positions.png" width="29%" />
 <i>The left boxplot was the outcome of the size measurements during the five days (08-12 Oct 2020); eight photos per day, where each photo was processed in eleven different scales, showing high variance during the night. The right was the plot of positions of the target pear during 12 Aug-15 Oct 2020, with some outliers below the frame. The larger the id is, the later it is.</i>
 
-## Preparation for **CROP**. 
+## Using **CROP**. 
 Please install Python, PyTorch, Jupyter, Pillow, Matplotlib and then download the following files: `demo.ipynb`, `analysis_single.ipynb`, `analysis_multiple.ipynb`, `source.py` and favorite parameter dictionaries into the same folder, and open these IPython notebooks by Jupyter Notebook, depending on the purposes below.
 
 ## Three different ways of using **CROP**.
