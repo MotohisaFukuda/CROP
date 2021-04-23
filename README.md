@@ -9,7 +9,8 @@ arXiv:2008.01251 [cs.CV]:
 ## Preparation for analysis on photos in local directories and folders. 
 Please install Python, PyTorch, Jupyter, Pillow, Matplotlib and then download the following files: `analysis_single.ipynb`, `analysis_multiple.ipynb`, `source3.py` and favorite parameter dictionaries into the same folder, and open `analysis_single.ipynb` or `analysis_multiple.ipynb` by Jupyter Notebook. The instructions on the above parameter dictionaries are found below (git-clone is not enough to get one). 
 
-## Three different ways of using 
+## Three different ways of using **CROP**
+
 [analyze_internet_images.](https://github.com/MotohisaFukuda/CROP/demo_internet_images)
 
 [analyze individual photos in a directory or folder.](https://github.com/MotohisaFukuda/CROP/analysis_single)
