@@ -32,4 +32,5 @@ Please install Python, PyTorch, Jupyter, Pillow, Matplotlib and then download th
 The network dictionaries are placed at [release](https://github.com/MotohisaFukuda/CROP/releases), so you can downlaod and unfreeze them (git-clone is not enough to get ones).
 To see the difference between the dictionaries, please have a look at our paper. 
 
+---
 The TITAN Xp GPU used in this project was denoted by NVIDIA Corporation.
