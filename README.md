@@ -10,7 +10,7 @@ arXiv:2008.01251 [cs.CV]:
 <i>(photo credit: Hideki Murayama).</i>
 
 ## Chooses the best among the eleven measurements. 
-<img src="/images/338_tiles_lite.png" width="40%" /><img src="/images/8tiles_lite.png" width="55%" />
+<img src="/images/338_tiles_lite.png" width="42%" /> <img src="/images/8tiles_lite.png" width="57%" />
 <i>The left describes that **CROP** identifies the target pear and makes measurements in eleven different scales. The right shows the target pear during the day of 12 Oct 2020. For each photo, among the eleven differently scaled photos the one giving the median (after scaling back) was chosen. (The camera was set by Takashi Okuno in the farm of Yota Ozeki.)</i>
 
 ## Gives time series data.
