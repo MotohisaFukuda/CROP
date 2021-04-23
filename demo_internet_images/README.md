@@ -1,6 +1,6 @@
 ## How to apply **CROP** to images on the net via **Jupyter Notebook**
 
-We explain below how to process images on the net by using the notebook named `demo.ipynb`. You need to place `source.py`, and `net_dic_0314_05000` (we have other parameter dictionaries too). The dictionaries are placed at [release](https://github.com/MotohisaFukuda/CROP/releases), so you can downlaod and unfreeze them. 
+We explain below how to process images on the net by using the notebook named `demo.ipynb`. You need to place `source.py`, and `net_dic_0314_05000`, which is the default parameter dictionary (we have other parameter dictionaries too). The dictionaries are placed at [release](https://github.com/MotohisaFukuda/CROP/releases), so you can downlaod and unfreeze them. 
 
 The first tab looks like:
 ```python
@@ -30,12 +30,12 @@ center = (x, y)
 scale = z
 pic_cropped = crop_image(pic_original, center, scale)
 ```
-you can crop the image through setting coordinates for the center and choosing the cropping size. Here, `x` and `y` are horizontal and vertical coordinates, respectively, of the center of your cropping frame. Then, the top-left corner will be `(x-z, y-z)` and the bottom-right `(x+z, y+z)`. After executing this tab, you will get a cropped image. You can redo this process until you get your favorite cropped image.
+you can crop the image through setting coordinates for the center and choosing the cropping size. Here, `x` and `y` are horizontal and vertical coordinates, respectively, of the center of your cropping frame. Then, the top-left corner will be `(x-z, y-z)` and the bottom-right `(x+z, y+z)`. After executing this tab, you will get a cropped image. You can redo this process until you set the target object around at the center.
 
-After executing the final tab:
+If the cropped photo is fine, execute the next (and last) tab:
 ```python
 _ = segment_image(pic_original, center, scale)
 ```
-you will see all the processes; as default
-automatically adjusted cropping frame, eleven differently scaled photos with masks, 
-histogram of the measurement outcomes, and the center of mass in the original photo. 
+the program will automatically adjust the cropping frame,
+and show the adjusted cropping frame, eleven differently scaled photos with masks, 
+the histogram of the measurement outcomes, and the center of mass in the original photo. 
