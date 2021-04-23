@@ -6,7 +6,7 @@ The first tab looks like:
 ```python
 from source import *
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
-segment_image = AnalyzingImage(dic_name="net_dic_0314_05000", device=device, threshold=0.5, average=True, mode="median", save_all=False,
+segment_image = AnalyzingImage(dic_name="net_dic_0314_05000", device=device, threshold=0.5, average=True, mode="median", 
                  show_adjusted=False, show_adjust_process=None, show_final=True, show_in_original=True, 
                  size_pointer1=5, size_pointer2=10)
 ```
