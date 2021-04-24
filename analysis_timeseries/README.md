@@ -9,8 +9,8 @@ name_measurement = r""
 dic_name = r""
 ```
 Please specify your directory or folder which contains the photos to be processed as `place`,
-the masurement name as `name_measurement` and the parameter dictionary name as `dic_name `.
-The dictionaries are placed at [release](https://github.com/MotohisaFukuda/CROP/releases), so you can downlaod and unfreeze them.
+the measurement name as `name_measurement` and the parameter dictionary name as `dic_name `.
+The dictionaries are placed at [release](https://github.com/MotohisaFukuda/CROP/releases), so you can download and unfreeze them.
 Note that each measurement outcome will be saved separately in the corresponding directory or folder created under the measurement name.
 This function is useful when you make different experiments on the same photos. 
 After executing the first and second tabs, you will see then the first photo in the directory or folder; 
@@ -26,4 +26,4 @@ The execution of the fourth tab will give you all; as default
 the program will make the directory or folder named as `name_measurement`
 and save the eleven measurement outcomes, the median and the corresponding coordinates of the center of mass in a csv file, and masked images and eleven masks (thumbnails) for all the photos.
 The target object can move around little by little in the time series photos, 
-but **CROP** can follow it because it can find the roundish objeect almost at the center. 
+but **CROP** can follow it because it can find the roundish object almost at the center. 
