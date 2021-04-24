@@ -1,6 +1,6 @@
 ## How to apply **CROP** to images on the net via **Jupyter Notebook**
 
-We explain below how to process images on the net by using the notebook named `demo.ipynb`. You need to place `source.py`, and `net_dic_0314_05000`, which is the default parameter dictionary (we have other parameter dictionaries too). The dictionaries are placed at [release](https://github.com/MotohisaFukuda/CROP/releases), so you can downlaod and unfreeze them. 
+We explain below how to process images on the net by using the notebook named `demo.ipynb`. You need to place `source.py`, and `net_dic_0314_05000`, which is the default parameter dictionary (we have other parameter dictionaries too). The dictionaries are placed at [release](https://github.com/MotohisaFukuda/CROP/releases), so you can download and unfreeze them. 
 
 The first tab looks like:
 ```python
@@ -16,7 +16,7 @@ Execute the second tab:
 ```python
 url = input()
 ```
-and input the url of the image on the net in the popped-up box. 
+and input the URL of the image on the net in the popped-up box. 
 Then execute the third:
 ```python
 pic_original = open_image(url)
