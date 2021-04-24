@@ -9,8 +9,8 @@ name_measurement = r""
 dic_name = r""
 ```
 Please specify your directory or folder which contains the photos to be processed as `place`,
-the masurement name as `name_measurement` and the parameter dictionary name as `dic_name `.
-The dictionaries are placed at [release](https://github.com/MotohisaFukuda/CROP/releases), so you can downlaod and unfreeze them.
+the measurement  name as `name_measurement` and the parameter dictionary name as `dic_name `.
+The dictionaries are placed at [release](https://github.com/MotohisaFukuda/CROP/releases), so you can download and unfreeze them.
 Note that each measurement outcomes will be saved separately in the corresponding directory or folder created under the measurement name.
 This function is useful when you make different experiments on the same photos. 
 After executing the first and second tabs, one will get the list of photos with id numbers. 
