@@ -16,7 +16,7 @@ In this project, we developped a non-contact method of measuring the relative si
 
 ## Chooses the best among the eleven differently scaled measurements. 
  <img src="/images/338_i.png" width="16%" /><img src="/images/338_tiles_lite.png" width="48%" /><img src="/images/338_h.png" width="20%" /><img src="/images/338_f.png" width="16%" />
-<i>The first figure is the input, and **CROP** identifies the central pear, as at the top-left corner of the next figure. Then, it makes measurements in eleven different scales, which can be seen in the same figure. The histogram shows the outcomes of pixel measurements re-scaled to be compared in the original scale. The pear giving the median is picked as in the last figure. The process was added to exclude outliers.</i>
+<i>The first figure is the input, and **CROP** identifies the central pear, as at the top-left corner of the next figure. Then, it makes measurements in eleven different scales, which can be seen in the same figure. The histogram shows the outcomes of pixel measurements re-scaled to be compared in the original scale. The pear giving the median is picked as in the last figure. The process is supposed to exclude outliers.</i>
 
 <img src="/images/8tiles_lite.png" width="60%" />
 <i>Examples: the target pear during the day of 12 Oct 2020. For each photo, the one giving the median was chosen. The camera was set by Takashi Okuno in the farm of Yota Ozeki.</i>
