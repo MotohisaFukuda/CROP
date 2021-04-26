@@ -15,8 +15,11 @@ In this project, we developped a non-contact method of measuring the relative si
 <i>It can process organic or non-organic roundish objects.</i>
 
 ## Chooses the best among the eleven differently scaled measurements. 
-<img src="/images/338_tiles_lite.png" width="42%" /> <img src="/images/8tiles_lite.png" width="57%" />
-<i>The left describes that **CROP** identifies the target pear and makes measurements in eleven different scales. The right shows the target pear during the day of 12 Oct 2020. For each photo, among the eleven differently scaled photos the one giving the median (after scaling back) was chosen. The camera was set by Takashi Okuno in the farm of Yota Ozeki.</i>
+ <img src="/images/338_i.png" width="15%" /><img src="/images/338_tiles_lite.png" width="45%" /><img src="/images/338_h.png" width="25%" /><img src="/images/338_i.png" width="15%" />
+<i>The first figure was the input, and **CROP** identified the central pear, as at the top-left corner of the next figure. Then, it makes measurements in eleven different scales, which can be seen in the second figure as well. The histogram shows the outcomes of pixel measurements re-scaled to be compared in the same scale. The pear giving the median is in the last figure.</i>
+
+<img src="/images/8tiles_lite.png" width="60%" />
+<i>The target pear during the day of 12 Oct 2020. For each photo, the one giving the median was chosen. The camera was set by Takashi Okuno in the farm of Yota Ozeki.</i>
 
 ## Gives time series data.
 <img src="/images/measurements_seg.png" width="69%" /> <img src="/images/positions.png" width="29%" />
