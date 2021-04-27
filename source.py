@@ -233,7 +233,7 @@ class SegmentingImage:
     
 class AnalyzingImage:
     def __init__(self, dic_name="", device=None, threshold=0.5, average=True, mode="median", save_all=False,
-                 show_adjusted=False, show_adjust_process=None, show_final=False, show_in_original=False, 
+                 show_adjusted=False, show_adjust_process=False, show_final=False, show_in_original=False, 
                  size_pointer1=5, size_pointer2=10):
  
         self.segment_image = SegmentingImage(threshold=threshold, device = device, average = average, dic_name=dic_name)
@@ -407,7 +407,7 @@ def find_pics(directory):
 class ProcessingSinglePic(AnalyzingImage):
     def __init__(self, dic_name="", device=None, directory=None, name_measurement=None, 
                  threshold=0.5, average=True, mode="median", save_all=False, 
-                 show_adjusted=False, show_adjust_process=None, show_final=False, show_in_original=None, 
+                 show_adjusted=False, show_adjust_process=False, show_final=False, show_in_original=None, 
                  size_pointer1=5, size_pointer2=10, mask=False):
         super().__init__(dic_name, device, 
                          threshold, average, mode, save_all, 
@@ -460,7 +460,7 @@ class ProcessingSinglePic(AnalyzingImage):
 class ProcessingMultiplePics(ProcessingSinglePic):
     def __init__(self, dic_name="", device=None, directory=None, name_measurement=None, 
                  threshold=0.5, average=True, mode="median", save_all=False, 
-                 show_adjusted=False, show_adjust_process=None, show_final=False, show_in_original=None, 
+                 show_adjusted=False, show_adjust_process=False, show_final=False, show_in_original=None, 
                  size_pointer1=5, size_pointer2=10, 
                  exploration_rate=1.5):
         self.exploration_rate = exploration_rate
