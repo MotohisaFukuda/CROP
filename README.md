@@ -7,7 +7,7 @@ arXiv:2008.01251 [cs.CV]:
 In this project, we developped a non-contact method of measuring the relative size of the central roundish objects in images, by counting the corresponding pixels, and identifying the centrer of mass. Applying this method to images taken by fixed cameras, one can obtain time series data on the growth process of various fruits. 
 
 ---
-***Let's see how **CROP** finds central objects and make image segmentation by examples, which are independent of the training process.***
+***How **CROP** finds central objects and make image segmentation through examples, which are independent of the training process.***
 ## Works for various fruits. 
 <img src="/images/murayama35a.png" width="33%" /><img src="/images/murayama21a.png" width="33%" /><img src="/images/murayama45.png" width="33%"/> 
 <i>The photos with no masks (left) are the inputs and the ones with masks (right) are the outputs. **CROP** can identify and process the central roundish fruit of various kinds and colors. photo credit: Hideki Murayama.</i>
@@ -17,7 +17,7 @@ In this project, we developped a non-contact method of measuring the relative si
 <i>It can process organic or non-organic roundish objects. The photos with no masks (left) are the inputs and the ones with masks (right) are the outputs.</i>
 
 ---
-***Next, we explain what the supporting programs do to make most of **CROP** by reducing measurement errors.*** 
+***The supporting programs make most of **CROP** by reducing measurement errors.*** 
 ## Chooses the best among the eleven differently scaled measurements. 
  <img src="/images/338_i.png" width="16%" /><img src="/images/338_tiles_lite.png" width="48%" /><img src="/images/338_h.png" width="20%" /><img src="/images/338_f.png" width="16%" />
 <i>The first figure is the input, and **CROP** identifies the central pear, as at the top-left corner of the next figure. Then, it makes measurements in eleven different scales, which can be seen in the same figure. The histogram shows the outcomes of pixel measurements re-scaled to be compared in the original scale. The pear giving the median is picked as in the last figure. The process is supposed to exclude outliers.</i>
@@ -26,7 +26,7 @@ In this project, we developped a non-contact method of measuring the relative si
 <i>Examples: the target pear during the day of 12 Oct 2020. For each photo, the one giving the median was chosen. The camera was set by Takashi Okuno in the farm of Yota Ozeki.</i>
 
 ---
-***Finally, this is the numerical data which **CROP** can produces.***
+***Numerical data which **CROP** produces.***
 ## Gives time series data.
 <img src="/images/measurements_seg.png" width="69%" /> <img src="/images/positions.png" width="29%" />
 <i>The left boxplot was the outcome of the size measurements during the five days (08-12 Oct 2020); eight photos per day, where each photo was processed in eleven different scales, showing high variance during the night. The right was the plot of positions of the target pear during 12 Aug-15 Oct 2020, with some outliers below the frame. The larger the id is, the later it is.</i>
