@@ -6,15 +6,13 @@ arXiv:2008.01251 [cs.CV]:
 
 In this project, we developed a non-contact method of measuring the relative size and locating the center of the central roundish objects in images, by counting the corresponding pixels, and identifying the center of mass. Applying this method to images taken by fixed cameras, one can obtain time series data on the growth process of various fruits. 
 
----
-**Let's see how **CROP** finds central objects and make image segmentation, through examples which are independent of the training process:**
 ## Works for various fruits. 
 <img src="/images/murayama35a.png" width="33%" /><img src="/images/murayama21a.png" width="33%" /><img src="/images/murayama45.png" width="33%"/> 
-<i>The photos with no masks (left) are the inputs and the ones with masks (right) are the outputs. **CROP** can identify and process the central roundish fruit of various kinds and colors. photo credit: Hideki Murayama.</i>
+<i>The photos with no masks (left) are the inputs and the ones with masks (right) are the outputs. **CROP** can identify and process the central roundish fruit of various kinds and colors. These examples are independent of the training process. photo credit: Hideki Murayama.</i>
 
 ## Achieved generality. 
 <img src="/images/coffee10.png" width="25%" /><img src="/images/bread2.png" width="25%" /><img src="/images/okuno_ball1556.png" width="25%"/><img src="/images/stone_br6.png" width="25%"/> 
-<i>It can process organic or non-organic roundish objects. The photos with no masks (left) are the inputs and the ones with masks (right) are the outputs.</i>
+<i>It can process organic or non-organic roundish objects. The photos with no masks (left) are the inputs and the ones with masks (right) are the outputs. These examples are independent of the training process.</i>
 
 ## Chooses the best among the eleven different scales, reducing measurement errors. 
  <img src="/images/338_i.png" width="16%" /><img src="/images/338_tiles_lite.png" width="48%" /><img src="/images/338_h.png" width="20%" /><img src="/images/338_f.png" width="16%" />
