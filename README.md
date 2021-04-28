@@ -14,7 +14,7 @@ In this project, we developed a non-contact method of measuring the relative siz
 <img src="/images/coffee10.png" width="25%" /><img src="/images/bread2.png" width="25%" /><img src="/images/okuno_ball1556.png" width="25%"/><img src="/images/stone_br6.png" width="25%"/> 
 <i>It can process organic or non-organic roundish objects. The photos with no masks (left) are the inputs and the ones with masks (right) are the outputs. These examples are independent of the training process.</i>
 
-## Reduce measurement errors. 
+## Reduces measurement errors. 
  <img src="/images/338_i.png" width="16%" /><img src="/images/338_tiles_lite.png" width="48%" /><img src="/images/338_h.png" width="20%" /><img src="/images/338_f.png" width="16%" />
 <i>The first figure is the input, and **CROP** identifies the central pear, as at the top-left corner of the next figure. Then, it makes measurements in eleven different scales, which can be seen in the same figure. The histogram shows the outcomes of pixel measurements re-scaled to be compared in the original scale. The pear giving the median is picked as in the last figure. The process is supposed to exclude outliers.</i>
 
