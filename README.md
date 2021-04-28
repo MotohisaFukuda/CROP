@@ -8,7 +8,7 @@ In this project, we developed a non-contact method of measuring the relative siz
 
 ## Works for various fruits. 
 <img src="/images/murayama35a.png" width="33%" /><img src="/images/murayama21a.png" width="33%" /><img src="/images/murayama45.png" width="33%"/> 
-<i>The photos with no masks (left) are the inputs and the ones with masks (right) are the outputs. **CROP** can identify and process the central roundish fruit of various kinds and colors. These examples are independent of the training process. photo credit: Hideki Murayama.</i>
+<i>The photos with no masks (left) are the inputs and the ones with masks (right) are the outputs. **CROP** can identify and process the central roundish fruit of various kinds and colors. These examples are independent of the training process. Photo credit: Hideki Murayama.</i>
 
 ## Achieved generality. 
 <img src="/images/coffee10.png" width="25%" /><img src="/images/bread2.png" width="25%" /><img src="/images/okuno_ball1556.png" width="25%"/><img src="/images/stone_br6.png" width="25%"/> 
