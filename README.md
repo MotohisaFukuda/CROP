@@ -30,6 +30,7 @@ In this project, we developed a non-contact method of measuring the relative siz
 ## Using **CROP**. 
 Please install Python, PyTorch, Jupyter, Pillow, Matplotlib and then download the following files: `demo.ipynb`, `analysis_single.ipynb`, `analysis_multiple.ipynb`, `source.py` and favorite parameter dictionaries into the same folder, and open these IPython notebooks by Jupyter Notebook, depending on the purposes below. Follow the links for further details. 
 
+---
 ## Three different ways of using **CROP**.
 
 - [analyze internet photos.](/demo_internet_images/README.md)
