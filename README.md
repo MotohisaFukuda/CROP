@@ -7,7 +7,7 @@ arXiv:2008.01251 [cs.CV]:
 In this project, we developped a non-contact method of measuring the relative size of the central roundish objects in images, by counting the corresponding pixels, and identifying the centrer of mass. Applying this method to images taken by fixed cameras, one can obtain time series data on the growth process of various fruits. 
 
 ---
-***How **CROP** finds central objects and make image segmentation through examples, which are independent of the training process.***
+***How **CROP** finds central objects and make image segmentation, through examples which are independent of the training process.***
 ## Works for various fruits. 
 <img src="/images/murayama35a.png" width="33%" /><img src="/images/murayama21a.png" width="33%" /><img src="/images/murayama45.png" width="33%"/> 
 <i>The photos with no masks (left) are the inputs and the ones with masks (right) are the outputs. **CROP** can identify and process the central roundish fruit of various kinds and colors. photo credit: Hideki Murayama.</i>
