@@ -8,11 +8,11 @@ In this project, we developed a non-contact method of measuring the relative siz
 
 ## Works for various fruits. 
 <img src="/images/murayama35a.png" width="33%" /><img src="/images/murayama21a.png" width="33%" /><img src="/images/murayama45.png" width="33%"/> 
-<i>The photos with no masks (left) are the inputs and the ones with masks (right) are the outputs. **CROP** can identify and process the central roundish fruit of various kinds and colors. These examples are independent of the training process. Photo credit: Hideki Murayama.</i>
+<i>The photos with no masks (left, 512×512 pixels) are the inputs and the ones with masks (right, 512×512 pixels) are the outputs. **CROP** can identify and process the central roundish fruit of various kinds and colors. These examples are independent of the training process. Photo credit: Hideki Murayama.</i>
 
 ## Achieved generality. 
 <img src="/images/coffee10.png" width="25%" /><img src="/images/bread2.png" width="25%" /><img src="/images/okuno_ball1556.png" width="25%"/><img src="/images/stone_br6.png" width="25%"/> 
-<i>It can process organic or non-organic roundish objects. The photos with no masks (left) are the inputs and the ones with masks (right) are the outputs. These examples are independent of the training process.</i>
+<i>It can process organic or non-organic roundish objects. The photos with no masks (left, 512×512 pixels) are the inputs and the ones with masks (right, 512×512 pixels) are the outputs. These examples are independent of the training process.</i>
 
 ## Reduces measurement errors. 
  <img src="/images/338_i.png" width="16%" /><img src="/images/338_tiles_lite.png" width="48%" /><img src="/images/338_h.png" width="20%" /><img src="/images/338_f.png" width="16%" />
