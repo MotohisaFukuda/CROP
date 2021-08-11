@@ -7,18 +7,18 @@ arXiv:2008.01251 [cs.CV]:
 In this project, we developed a non-contact method of measuring the relative size and locating the center of the central roundish objects in images, by counting the corresponding pixels, and identifying the center of mass. Applying this method to images taken by fixed cameras, one can obtain time series data on the growth process of various fruits. For accurate data, **CROP** processes 512×512-pixel images, which can be seen in the examples below (the size was reduced to save the resource). 
 
 ## Works for various fruits. 
-<img src="/images/murayama35a.png" width="33%" /><img src="/images/murayama21a.png" width="33%" /><img src="/images/murayama45.png" width="33%"/> 
+<img src="images/murayama35a.png" width="33%" /><img src="images/murayama21a.png" width="33%" /><img src="images/murayama45.png" width="33%"/> 
 <i>The photos with no masks (left, 512×512 pixels) are the inputs and the ones with masks (right, 512×512 pixels) are the outputs. **CROP** can identify and process the central roundish fruit of various kinds and colors. These examples are independent of the training process. Photo credit: Hideki Murayama.</i>
 
 ## Achieved generality. 
-<img src="/images/coffee10.png" width="25%" /><img src="/images/bread2.png" width="25%" /><img src="/images/okuno_ball1556.png" width="25%"/><img src="/images/stone_br6.png" width="25%"/> 
+<img src="images/coffee10.png" width="25%" /><img src="images/bread2.png" width="25%" /><img src="images/okuno_ball1556.png" width="25%"/><img src="images/stone_br6.png" width="25%"/> 
 <i>It can process organic or non-organic roundish objects. The photos with no masks (left, 512×512 pixels) are the inputs and the ones with masks (right, 512×512 pixels) are the outputs. These examples are independent of the training process.</i>
 
 ## Reduces measurement errors. 
- <img src="/images/338_i.png" width="16%" /><img src="/images/338_tiles_lite.png" width="48%" /><img src="/images/338_h.png" width="20%" /><img src="/images/338_f.png" width="16%" />
+ <img src="images/338_i.png" width="16%" /><img src="images/338_tiles_lite.png" width="48%" /><img src="images/338_h.png" width="20%" /><img src="images/338_f.png" width="16%" />
 <i>The first figure is the input, and **CROP** identifies the central pear, as at the top-left corner of the next figure. Then, it makes measurements in eleven different scales, which can be seen in the same figure. The histogram shows the outcomes of pixel measurements re-scaled to be compared in the original scale. The pear giving the median is picked as in the last figure. The process is supposed to exclude outliers.</i>
 
-<img src="/images/8tiles_lite.png" width="60%" />
+<img src="images/8tiles_lite.png" width="60%" />
 <i>Examples: the target pear during the day of 12 Oct 2020. For each photo, the one giving the median was chosen. The camera was set by Takashi Okuno in the farm of Yota Ozeki.</i>
 
 
