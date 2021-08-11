@@ -23,7 +23,7 @@ In this project, we developed a non-contact method of measuring the relative siz
 
 
 ## Gives time series data.
-<img src="/images/measurements_seg.png" width="69%" /> <img src="/images/positions.png" width="29%" />
+<img src="images/measurements_seg.png" width="69%" /> <img src="images/positions.png" width="29%" />
 <i>The left boxplot was the outcome of the size measurements during the five days (08-12 Oct 2020); eight photos per day, where each photo was processed in eleven different scales, showing high variance during the night. The right was the plot of positions of the target pear during 12 Aug-15 Oct 2020, with some outliers below the frame. The larger the id is, the later it is.</i>
 
 ---
