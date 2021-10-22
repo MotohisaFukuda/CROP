@@ -1,6 +1,6 @@
 # Central Object Segmentation by Deep Learning to Continuously Monitor Fruit Growth through RGB Images
 
-**CROP(Central Roundish Object Painter)**, which is a deepr version of **U-Net**, identifies abd paints the central roundish objects in RGB images in the varied light conditions. **CROP** was trained solely by 172 images of fruits but gained somewhat general ability to work for the other types of objects. Applying **CROP** to time series images captured by fixed cameras will give the growth curves of fruits. See [our aper](https://doi.org/10.3390/s21216999) for details.  
+**CROP(Central Roundish Object Painter)**, which is a deepr version of **U-Net**, identifies and paints the central roundish objects in RGB images in the varied light conditions. **CROP** was trained solely by 172 images of fruits but gained somewhat general ability to work for the other types of objects. Applying **CROP** to time series fruit images captured by fixed cameras will give the growth curves of fruits. See [our aper](https://doi.org/10.3390/s21216999) for details.  
 
 ## Works for various fruits. 
 
