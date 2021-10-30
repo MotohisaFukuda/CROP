@@ -2,7 +2,7 @@
 
 **CROP(Central Roundish Object Painter)**, which is a deepr version of **U-Net**, identifies and paints the central roundish objects in RGB images in the varied light conditions. **CROP** was trained solely by 172 images of fruits but gained somewhat general ability to work for the other types of objects. Applying **CROP** to time series fruit images captured by fixed cameras will give the growth curves of fruits. See our paper for the details. 
 
-[Sensors 2021, 21(21), 6999; https://doi.org/10.3390/s21216999](https://doi.org/10.3390/s21216999)
+[Sensors 2021, 21(21), 6999](https://doi.org/10.3390/s21216999)
 
 ## Works for various fruits. 
 
